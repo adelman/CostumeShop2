@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227181359) do
+ActiveRecord::Schema.define(version: 20131227182058) do
+
+  create_table "costumes", force: true do |t|
+    t.integer  "cid"
+    t.string   "description"
+    t.string   "wd"
+    t.string   "photo"
+    t.boolean  "back"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", force: true do |t|
     t.string   "name"

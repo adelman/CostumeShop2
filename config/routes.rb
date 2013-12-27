@@ -1,5 +1,7 @@
 CostumeShop2::Application.routes.draw do
 
+  resources :costumes
+
   resources :customers
 
   root 'home#index'

@@ -1,0 +1,35 @@
+<h1>Listing costumes</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID #</th>
+      <th>Description</th>
+      <th>W/D</th>
+      <th>Photo</th>
+      <th>In?</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @costumes.each do |costume| %>
+      <tr>
+        <td><%= costume.cid %></td>
+        <td><%= costume.description %></td>
+        <td><%= costume.wd %></td>
+        <td><%= costume.photo %></td>
+        <td><%= costume.back %></td>
+        <td><%= link_to 'Show', costume %></td>
+        <td><%= link_to 'Edit', edit_costume_path(costume) %></td>
+        <td><%= link_to 'Destroy', costume, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Costume', new_costume_path %>

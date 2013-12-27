@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cid: 1
+  description: MyString
+  wd: 
+  photo: MyString
+  back: false
+
+two:
+  cid: 1
+  description: MyString
+  wd: 
+  photo: MyString
+  back: false
