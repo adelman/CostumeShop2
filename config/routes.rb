@@ -1,5 +1,7 @@
 CostumeShop2::Application.routes.draw do
 
+  resources :agreements
+
   resources :costumes
 
   resources :customers

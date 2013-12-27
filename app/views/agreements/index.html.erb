@@ -1,0 +1,39 @@
+<h1>Listing agreements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Customer</th>
+      <th>Costume</th>
+      <th>Title</th>
+      <th>Start</th>
+      <th>End</th>
+      <th>Due</th>
+      <th>Financer</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agreements.each do |agreement| %>
+      <tr>
+        <td><%= agreement.customer %></td>
+        <td><%= agreement.costume %></td>
+        <td><%= agreement.title %></td>
+        <td><%= agreement.start %></td>
+        <td><%= agreement.end %></td>
+        <td><%= agreement.due %></td>
+        <td><%= agreement.financer %></td>
+        <td><%= link_to 'Show', agreement %></td>
+        <td><%= link_to 'Edit', edit_agreement_path(agreement) %></td>
+        <td><%= link_to 'Destroy', agreement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Agreement', new_agreement_path %>
