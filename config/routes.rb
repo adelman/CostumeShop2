@@ -1,10 +1,6 @@
 CostumeShop2::Application.routes.draw do
 
-  resources :agreements
-
   resources :costumes
-
-  resources :customers
 
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
