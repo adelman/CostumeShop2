@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229174540) do
+ActiveRecord::Schema.define(version: 20131229175229) do
+
+  create_table "agreement_costumes", force: true do |t|
+    t.integer  "agreement_id"
+    t.integer  "costume_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "agreement_costumes", ["agreement_id"], name: "index_agreement_costumes_on_agreement_id"
+  add_index "agreement_costumes", ["costume_id"], name: "index_agreement_costumes_on_costume_id"
 
   create_table "agreements", force: true do |t|
     t.string   "name"
