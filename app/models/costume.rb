@@ -4,11 +4,4 @@ class Costume < ActiveRecord::Base
 
   validates_presence_of :cid
   validates_uniqueness_of :cid
-
-  before_save :mark_as_out
-
-  private
-    def mark_as_out
-      self.back = false
-    end
 end
