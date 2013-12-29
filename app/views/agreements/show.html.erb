@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @agreement.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @agreement.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @agreement.email %>
+</p>
+
+<p>
+  <strong>Mailbox:</strong>
+  <%= @agreement.mailbox %>
+</p>
+
+<p>
+  <strong>Wesid:</strong>
+  <%= @agreement.wesid %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @agreement.title %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @agreement.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @agreement.end %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @agreement.due %>
+</p>
+
+<p>
+  <strong>Financer:</strong>
+  <%= @agreement.financer %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @agreement.employee %>
+</p>
+
+<%= link_to 'Edit', edit_agreement_path(@agreement) %> |
+<%= link_to 'Back', agreements_path %>

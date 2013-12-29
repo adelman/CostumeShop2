@@ -11,22 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131227182642) do
+ActiveRecord::Schema.define(version: 20131229174540) do
 
   create_table "agreements", force: true do |t|
-    t.integer  "customer_id"
-    t.integer  "costume_id"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "mailbox"
+    t.string   "wesid"
     t.string   "title"
     t.date     "start"
     t.date     "end"
     t.date     "due"
-    t.string   "financer"
+    t.date     "financer"
+    t.string   "employee"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "agreements", ["costume_id"], name: "index_agreements_on_costume_id"
-  add_index "agreements", ["customer_id"], name: "index_agreements_on_customer_id"
 
   create_table "costumes", force: true do |t|
     t.integer  "cid"
@@ -34,16 +35,6 @@ ActiveRecord::Schema.define(version: 20131227182642) do
     t.string   "wd"
     t.string   "photo"
     t.boolean  "back"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "customers", force: true do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "mailbox"
-    t.string   "wesid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
