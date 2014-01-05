@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <!-- hello -->
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -55,6 +55,31 @@
     <%= f.label :employee %><br>
     <%= f.text_field :employee %>
   </div>
+
+
+  <%= f.fields_for :costumes do |c| %>
+    <div class="field">
+      <%= c.label :cid %><br>
+      <%= c.number_field :cid %>
+    </div>
+    <div class="field">
+      <%= c.label :description %><br>
+      <%= c.text_field :description %>
+    </div>
+    <div class="field">
+      <%= c.label :wd %><br>
+      <%= c.text_field :wd %>
+    </div>
+    <div class="field">
+      <%= c.label :photo %><br>
+      <%= c.text_field :photo %>
+    </div>
+    <div class="field">
+      <%= c.label :back %><br>
+      <%= c.check_box :back %>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

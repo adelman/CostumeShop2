@@ -15,6 +15,8 @@ class AgreementsController < ApplicationController
   # GET /agreements/new
   def new
     @agreement = Agreement.new
+    @agreement.costumes.build
+    @costumes = Costume.all
   end
 
   # GET /agreements/1/edit
@@ -69,6 +71,6 @@ class AgreementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agreement_params
-      params.require(:agreement).permit(:name, :phone, :email, :mailbox, :wesid, :title, :start, :end, :due, :financer, :employee)
+      params.require(:agreement).permit(:name, :phone, :email, :mailbox, :wesid, :title, :start, :end, :due, :financer, :employee, :costumes_attributes => [:cid, :description, :wd, :photo, :back])
     end
 end

@@ -55,5 +55,31 @@
   <%= @agreement.employee %>
 </p>
 
+<h2>Costumes</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID #</th>
+      <th>Description</th>
+      <th>W/D</th>
+      <th>Photo</th>
+      <th>In?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for costume in @agreement.costumes %>
+      <tr>
+        <td><%= costume.cid %></td>
+        <td><%= costume.description %></td>
+        <td><%= costume.wd %></td>
+        <td><%= costume.photo %></td>
+        <td><%= costume.back %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <%= link_to 'Edit', edit_agreement_path(@agreement) %> |
 <%= link_to 'Back', agreements_path %>
