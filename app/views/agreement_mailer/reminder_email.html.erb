@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+
+    <p>Hello <%= @agreement.name %>,</p>
+
+    <p>We are sending this email to remind you that the items you have out from
+    the costume shop are due back <strong style="color: red;">
+    <%= @agreement.duedate.strftime("%A, %B %d") %></strong> by 
+    the end of lending hours </p>
+
+    <p>Please do not forget to wash costumes that are machine washable. Anything
+    that has to be dry cleaned will be sent out by the shop, but garments which
+    can be washed in a washing machine are your responsibility. Failure to do so
+    will incur fines. If you have questions about which of your costumes are
+    machine washable, feel free to ask in an email. </p>
+
+    <p>If you do not return the costumes by 3:00 on this day, our fine policy is
+    as follows:</p>
+
+    <ul> 
+      <li> 1 day late-1 week late: $5 </li> 
+      <li> 1 week late-2 weeks late: $10 </li> 
+      <li> If the items are more than 2 weeks late, you will be charged to
+      replace them. Replacement charges consist of a $25 base fee PLUS the
+      actual cost to replace the item. Please note that the $25 fee is charged
+      per item. </li> 
+    </ul>
+
+    <p>If you would like to renew the items, you still must bring them in to the
+    collection and have a costume collection manager verify that all pieces are
+    present and in good condition. Please contact us if you have any questions,
+    or if for any reason you won't be able to return your costumes by their due
+    date.</p>
+
+    <p>Thanks,</p>
+
+    <p>The Costume Collection</p>
+
+  </body>
+</html>
+

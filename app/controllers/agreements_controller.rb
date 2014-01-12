@@ -16,7 +16,6 @@ class AgreementsController < ApplicationController
   def new
     @agreement = Agreement.new
     @agreement.costumes.build
-    @costumes = Costume.all
   end
 
   # GET /agreements/1/edit
@@ -30,6 +29,7 @@ class AgreementsController < ApplicationController
 
     respond_to do |format|
       if @agreement.save
+        AgreementMailer.welcome_email(@agreement).deliver        
         format.html { redirect_to @agreement, notice: 'Agreement was successfully created.' }
         format.json { render action: 'show', status: :created, location: @agreement }
       else

@@ -25,6 +25,7 @@ class CostumesController < ApplicationController
   # POST /costumes.json
   def create
     @costume = Costume.new(costume_params)
+    @costume.photo = upload_photo(@costume.photo)
 
     respond_to do |format|
       if @costume.save
@@ -70,5 +71,16 @@ class CostumesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def costume_params
       params.require(:costume).permit(:cid, :description, :wd, :photo, :back)
+    end
+
+    def upload_photo (img_file)
+      unless (img_file == nil)
+        img = Imgur::API.new '90b4d040607755992895fdd5bb586ba2'
+        
+        path = img_file.path
+
+        uploaded_img = img.upload_file path
+        return uploaded_img["image_hash"]
+      end
     end
 end
