@@ -11,27 +11,28 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :cid %><br>
-    <%= f.number_field :cid %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :wd %><br>
-    <%= f.text_field :wd %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br>
-    <%= f.text_field :photo %>
-  </div>
-  <div class="field">
-    <%= f.label :back %><br>
-    <%= f.check_box :back %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table>
+    <tr>
+      <td><div class="field">
+        <%= f.label :cid %><br>
+        <%= f.number_field :cid %>
+      </div></td>
+      <td><div class="field">
+        <%= f.label :description %><br>
+        <%= f.text_field :description %>
+      </div></td>
+      <td><div class="field">
+        <%= f.label :wd %><br>
+        <%= f.text_field :wd %>
+      </div></td>
+      <td><div class="field">
+        <%= f.label :photo %><br>
+        <%= f.text_field :photo %>
+      </div></td>
+      <td><div class="field">
+        <%= f.label :back %><br>
+        <%= f.check_box :back %>
+      </div></td>
+    </tr>
+  </table>
 <% end %>

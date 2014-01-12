@@ -10,7 +10,7 @@ class CreateAgreements < ActiveRecord::Migration
       t.date :start
       t.date :end
       t.date :due
-      t.date :financer
+      t.string :financer
       t.string :employee
 
       t.timestamps

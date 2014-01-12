@@ -1,18 +1,10 @@
 <h1>Listing agreements</h1>
 
-<table>
+<table border=1>
   <thead>
     <tr>
       <th>Name</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Mailbox</th>
-      <th>Wesid</th>
-      <th>Title</th>
-      <th>Start</th>
-      <th>End</th>
       <th>Due</th>
-      <th>Financer</th>
       <th>Employee</th>
       <th></th>
       <th></th>
@@ -24,15 +16,7 @@
     <% @agreements.each do |agreement| %>
       <tr>
         <td><%= agreement.name %></td>
-        <td><%= agreement.phone %></td>
-        <td><%= agreement.email %></td>
-        <td><%= agreement.mailbox %></td>
-        <td><%= agreement.wesid %></td>
-        <td><%= agreement.title %></td>
-        <td><%= agreement.start %></td>
-        <td><%= agreement.end %></td>
         <td><%= agreement.due %></td>
-        <td><%= agreement.financer %></td>
         <td><%= agreement.employee %></td>
         <td><%= link_to 'Show', agreement %></td>
         <td><%= link_to 'Edit', edit_agreement_path(agreement) %></td>

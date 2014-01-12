@@ -1,4 +1,4 @@
-<%= form_for(@agreement) do |f| %>
+<%= nested_form_for(@agreement) do |f| %>
   <% if @agreement.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@agreement.errors.count, "error") %> prohibited this agreement from being saved:</h2>
@@ -10,75 +10,107 @@
       </ul>
     </div>
   <% end %>
-  <!-- hello -->
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :mailbox %><br>
-    <%= f.text_field :mailbox %>
-  </div>
-  <div class="field">
-    <%= f.label :wesid %><br>
-    <%= f.text_field :wesid %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.date_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.date_select :end %>
-  </div>
-  <div class="field">
-    <%= f.label :due %><br>
-    <%= f.date_select :due %>
-  </div>
-  <div class="field">
-    <%= f.label :financer %><br>
-    <%= f.date_select :financer %>
-  </div>
+
   <div class="field">
     <%= f.label :employee %><br>
-    <%= f.text_field :employee %>
+    <%= f.text_field :employee, :required => true %>
   </div>
 
+  <br>
 
-  <%= f.fields_for :costumes do |c| %>
-    <div class="field">
-      <%= c.label :cid %><br>
-      <%= c.number_field :cid %>
-    </div>
-    <div class="field">
-      <%= c.label :description %><br>
-      <%= c.text_field :description %>
-    </div>
-    <div class="field">
-      <%= c.label :wd %><br>
-      <%= c.text_field :wd %>
-    </div>
-    <div class="field">
-      <%= c.label :photo %><br>
-      <%= c.text_field :photo %>
-    </div>
-    <div class="field">
-      <%= c.label :back %><br>
-      <%= c.check_box :back %>
-    </div>
-  <% end %>
+  <h3>Contact Information</h3>
+  <table>
+    <tr>
+      <td><div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+      </div></td>
+      <td><div class="field">
+      <%= f.label "Telephone" %><br />
+      <%= f.text_field :phone %>
+    </div></td>
+    </tr>
+    <tr>
+      <td><div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email %>
+      </div></td>
+      <td><div class="field">
+      <%= f.label "Mailbox" %><br />
+      <%= f.text_field :mailbox %>
+    </div></td>
+    </tr>
+    <tr>
+      <td><div class="field">
+      <%= f.label "WesID" %><br />
+      <%= f.text_field :wesid, :required => true %>
+      </div></td>
+    </tr>
+  </table>
+
+  <br>
+  
+  <h3>Performance Information</h3>
+
+  <div class="field">
+    <%= f.label "Title of Performance" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <table>
+    <tr>
+      <td><div class="field">
+      <%= f.label "Performance Start Date" %><br />
+      <%= f.date_select :start %>
+      </div></td>
+      <td><div class="field">
+      <%= f.label "Performance End Date" %><br />
+      <%= f.date_select :end %>
+      </div></td>
+    </tr>
+    <tr>
+      <td><div class="field">
+      <%= f.label "Due Date" %><br />
+      <%= f.date_select :due, :default => 2.weeks.from_now %>
+      </div></td>
+      <td><div class="field">
+      <%= f.label "Who Is Financing (Theater, Dance, or Other)?" %><br />
+      <%= f.text_field :financer %>
+      </div></td>
+    </tr>
+  </table>
+
+  <br>
+
+  <h3>Costumes</h3>
+  
+  <table id="costumes">
+    <%= f.fields_for :costumes, :wrapper => false do |c| %>
+      <tr>
+        <td><div class="field">
+          <%= c.label "ID #" %><br>
+          <%= c.number_field :cid %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :description %><br>
+          <%= c.text_field :description %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label "W/D" %><br>
+          <%= c.text_field :wd %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :photo %><br>
+          <%= c.text_field :photo %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label "In?" %><br>
+          <%= c.check_box :back %>
+        </div></td>
+      </tr>
+    <% end %>
+  </table>
+
+  <%= f.link_to_add "Add a costume", :costumes, data: {target: "#costumes"} %>
 
   <div class="actions">
     <%= f.submit %>

@@ -1,3 +1,148 @@
 // Place all the styles related to the Agreements controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.out {
+  background-color: #98F5FF;
+}
+
+.overdue {
+  background-color: #FF00FF;
+}
+
+.fees {
+  background-color: #32CD32;
+}
+
+.dry-clean {
+  background-color: yellow;
+}
+
+.complete {
+  color: #A8A8A8;
+  background-color: #474747;
+}
+
+.issue {
+  color: white;
+  background-color: red;
+}
+
+#full_width_div {
+    width:70%;
+}
+.description {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    border-bottom: 1px solid;
+}
+.pull_left {
+    float:left;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.pull_right{
+  float:right;
+}
+.number {
+    overflow:hidden;
+    float:left;
+    width:20px;
+    text-align:center;
+        border-bottom: 1px solid;
+}
+.photo {
+    white-space:nowrap;
+    float:right;
+    width:100px;
+    text-align:center;
+    border-bottom: 1px solid;   
+}
+.photo2 {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    float:right;
+    width:150px;
+    height:23px;
+    text-align:center;
+    border-bottom: 1px solid;   
+}
+.photo3 {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    float:right;
+    width:150px;
+    text-align:center;
+    border-bottom: 1px solid;   
+}
+
+
+.invoice_under {
+    white-space:nowrap;
+    float:right;
+    width:150px;
+    text-align:right;
+    border-bottom: 1px solid;   
+}
+.invoice {
+    white-space:nowrap;
+    float:right;
+    width:150px;
+    text-align:right;
+}
+
+
+.wd {
+    white-space:nowrap;
+    float:right;
+    width:50px;
+    text-align:center;
+    border-bottom: 1px solid;
+}
+.wd2 {
+    white-space:nowrap;
+    float:right;
+    width:50px;
+    height:23px;
+    text-align:center;
+    border-bottom: 1px solid;
+}
+
+
+.num2 {
+    white-space:nowrap;
+    float:left;
+    width:20px;
+    text-align:center;
+}
+.num3 {
+    white-space:nowrap;
+    float:left;
+    height:23px;
+    width:20px;
+    text-align:center;
+    border-bottom: 1px solid;   
+    
+}
+
+
+
+.back {
+   float:right;
+   white-space:nowrap;
+   width:50px;
+   text-align:center;
+    border-bottom: 1px solid;
+}
+.back2 {
+   float:right;
+   white-space:nowrap;
+   width:50px;
+   height:23px;
+   text-align:center;
+    border-bottom: 1px solid;
+}

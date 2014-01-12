@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20131229175229) do
     t.date     "start"
     t.date     "end"
     t.date     "due"
-    t.date     "financer"
+    t.string   "financer"
     t.string   "employee"
     t.datetime "created_at"
     t.datetime "updated_at"
