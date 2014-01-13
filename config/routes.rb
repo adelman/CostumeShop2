@@ -1,6 +1,8 @@
 CostumeShop2::Application.routes.draw do
 
-  resources :agreements
+  resources :agreements do
+    resources :drycleans
+  end
 
   resources :costumes
 

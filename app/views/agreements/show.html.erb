@@ -1,84 +1,105 @@
 <p id="notice"><%= notice %></p>
 
+Agreement created by <%= @agreement.employee %>
+
+<br />
+
+<h3>Contact Information</h3>
 <p>
-  <strong>Name:</strong>
+  <b>Name:</b>
   <%= @agreement.name %>
+
+  <b>Telephone:</b>
+  <%= number_to_phone(@agreement.phone, :area_code => true) %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
-  <%= @agreement.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
+  <b>Email:</b>
   <%= @agreement.email %>
-</p>
 
-<p>
-  <strong>Mailbox:</strong>
+  <b>Mailbox:</b>
   <%= @agreement.mailbox %>
 </p>
 
 <p>
-  <strong>Wesid:</strong>
+ <b>WesID:</b>
   <%= @agreement.wesid %>
-</p>
+  </p>
 
+
+<br>
+
+<h3>Performance Information</h3>
 <p>
-  <strong>Title:</strong>
+  <b>Title of Performance:</b>
   <%= @agreement.title %>
 </p>
 
 <p>
-  <strong>Start:</strong>
-  <%= @agreement.start %>
+  <b>Performance Start Date:</b>
+  <%= (@agreement.start) %>
+
+  <b>Performance End Date:</b>
+  <%= (@agreement.end) %>
 </p>
 
 <p>
-  <strong>End:</strong>
-  <%= @agreement.end %>
-</p>
+  <b>Due Date:</b>
+  <%= (@agreement.due) %>
 
-<p>
-  <strong>Due:</strong>
-  <%= @agreement.due %>
-</p>
-
-<p>
-  <strong>Financer:</strong>
+  <b>Financer:</b>
   <%= @agreement.financer %>
 </p>
 
-<p>
-  <strong>Employee:</strong>
-  <%= @agreement.employee %>
-</p>
+<br>
 
-<h2>Costumes</h2>
-
-<table border="1">
-  <thead>
-    <tr>
-      <th>ID #</th>
-      <th>Description</th>
-      <th>W/D</th>
-      <th>Photo</th>
-      <th>In?</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% for costume in @agreement.costumes %>
+<% unless @agreement.drycleans == [] %>
+  <h2>Dry Cleaning Info</h2>
+  <table border="1">
+    <thead>
       <tr>
-        <td><%= costume.cid %></td>
-        <td><%= costume.description %></td>
-        <td><%= costume.wd %></td>
-        <td><%= costume.photo %></td>
-        <td><%= costume.back %></td>
+        <th>Invoice #</th>
+        <th># of Garments</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% for dryclean in @agreement.drycleans %>
+        <tr>
+          <td><%= dryclean.invoice %></td>
+          <td><%= dryclean.garment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+
+<br>
+
+<% unless @agreement.costumes == [] %>
+  <h2>Costumes</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID #</th>
+        <th>Description</th>
+        <th>W/D</th>
+        <th>Photo</th>
+        <th>In?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for costume in @agreement.costumes %>
+        <tr>
+          <td><%= costume.cid %></td>
+          <td><%= costume.description %></td>
+          <td><%= costume.wd %></td>
+          <td><%= costume.photo %></td>
+          <td><%= costume.back %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
 
 
 <%= link_to 'Edit', edit_agreement_path(@agreement) %> |

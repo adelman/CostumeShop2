@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  agreement_id: 
+  garment: 1
+  invoice: 1
+
+two:
+  agreement_id: 
+  garment: 1
+  invoice: 1

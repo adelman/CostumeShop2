@@ -22,28 +22,28 @@
   <table>
     <tr>
       <td><div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
       </div></td>
       <td><div class="field">
-      <%= f.label "Telephone" %><br />
-      <%= f.text_field :phone %>
+        <%= f.label "Telephone" %><br />
+        <%= f.text_field :phone %>
     </div></td>
     </tr>
     <tr>
       <td><div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email %>
+        <%= f.label :email %><br />
+        <%= f.email_field :email %>
       </div></td>
       <td><div class="field">
-      <%= f.label "Mailbox" %><br />
-      <%= f.text_field :mailbox %>
+        <%= f.label "Mailbox" %><br />
+        <%= f.text_field :mailbox %>
     </div></td>
     </tr>
     <tr>
       <td><div class="field">
-      <%= f.label "WesID" %><br />
-      <%= f.text_field :wesid, :required => true %>
+        <%= f.label "WesID" %><br />
+        <%= f.text_field :wesid, :required => true %>
       </div></td>
     </tr>
   </table>
@@ -59,30 +59,48 @@
   <table>
     <tr>
       <td><div class="field">
-      <%= f.label "Performance Start Date" %><br />
-      <%= f.date_select :start %>
+        <%= f.label "Performance Start Date" %><br />
+        <%= f.date_select :start %>
       </div></td>
       <td><div class="field">
-      <%= f.label "Performance End Date" %><br />
-      <%= f.date_select :end %>
+        <%= f.label "Performance End Date" %><br />
+        <%= f.date_select :end %>
       </div></td>
     </tr>
     <tr>
       <td><div class="field">
-      <%= f.label "Due Date" %><br />
-      <%= f.date_select :due, :default => 2.weeks.from_now %>
+        <%= f.label "Due Date" %><br />
+        <%= f.date_select :due, :default => 2.weeks.from_now %>
       </div></td>
       <td><div class="field">
-      <%= f.label "Who Is Financing (Theater, Dance, or Other)?" %><br />
-      <%= f.text_field :financer %>
+        <%= f.label "Who Is Financing (Theater, Dance, or Other)?" %><br />
+        <%= f.text_field :financer %>
       </div></td>
     </tr>
   </table>
 
   <br>
 
-  <h3>Costumes</h3>
-  
+  <h3>Dry Cleaning Information</h3>  
+  <table id="dryclean">
+    <%= f.fields_for :drycleans, :wrapper => false do |d| %>
+      <tr>
+        <td><div class="field">
+          <%= d.label "Invoice #" %><br>
+          <%= d.number_field :invoice %>
+        </div></td>
+        <td><div class="field">
+          <%= d.label "# of Garments" %><br>
+          <%= d.number_field :garment %>
+        </div></td>
+      </tr>
+    <% end %>
+  </table>
+  <%= f.link_to_add "Add Dry Cleaning Info", :drycleans, data: {target: "#dryclean"} %>
+
+  <br>
+
+  <h3>Costumes</h3>  
   <table id="costumes">
     <%= f.fields_for :costumes, :wrapper => false do |c| %>
       <tr>
@@ -109,8 +127,9 @@
       </tr>
     <% end %>
   </table>
-
   <%= f.link_to_add "Add a costume", :costumes, data: {target: "#costumes"} %>
+
+  <br>
 
   <div class="actions">
     <%= f.submit %>
