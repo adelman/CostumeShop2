@@ -80,11 +80,20 @@ Agreement created by <%= @agreement.employee %>
   <table border="1">
     <thead>
       <tr>
+<<<<<<< HEAD
         <th>ID #</th>
         <th>Description</th>
         <th>W/D</th>
         <th>Photo</th>
         <th>In?</th>
+=======
+        <td><%= costume.cid %></td>
+        <td><%= costume.description %></td>
+        <td><%= costume.wd %></td>
+        <td><%= link_to "Photo", "http://imgur.com/#{costume.photo}", 
+                target: "_blank"%></td>
+        <td><%= costume.back %></td>
+>>>>>>> lost-damage
       </tr>
     </thead>
     <tbody>
@@ -93,8 +102,7 @@ Agreement created by <%= @agreement.employee %>
           <td><%= costume.cid %></td>
           <td><%= costume.description %></td>
           <td><%= costume.wd %></td>
-          <td><%= link_to "Photo", "http://imgur.com/#{costume.photo}", 
-                  target: "_blank"%></td>
+          <td><%= costume.photo %></td>
           <td><%= costume.back %></td>
         </tr>
       <% end %>

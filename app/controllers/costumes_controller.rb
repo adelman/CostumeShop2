@@ -41,6 +41,7 @@ class CostumesController < ApplicationController
   # PATCH/PUT /costumes/1
   # PATCH/PUT /costumes/1.json
   def update
+    update_photo
     respond_to do |format|
       if @costume.update(costume_params)
         format.html { redirect_to @costume, notice: 'Costume was successfully updated.' }
@@ -83,4 +84,15 @@ class CostumesController < ApplicationController
         return uploaded_img["image_hash"]
       end
     end
+
+    def update_photo
+      if params[:costume][:photo] == nil
+        params[:costume][:photo] = @costume.photo
+      else
+        params[:costume][:photo] = upload_photo(params[:costume][:photo])
+      end
+    end
+
+
+
 end

@@ -28,6 +28,10 @@ class AgreementsController < ApplicationController
   def create
     @agreement = Agreement.new(agreement_params)
 
+    for costume in @agreement.costumes
+      costume.photo = upload_photo(costume.photo)
+    end
+
     respond_to do |format|
       if @agreement.save
         AgreementMailer.welcome_email(@agreement).deliver        
@@ -74,4 +78,16 @@ class AgreementsController < ApplicationController
     def agreement_params
       params.require(:agreement).permit(:name, :phone, :email, :mailbox, :wesid, :title, :start, :end, :due, :financer, :employee, costumes_attributes: [:cid, :description, :wd, :photo, :back], drycleans_attributes: [:id, :_destroy, :invoice, :garment])
     end
+
+    def upload_photo (img_file)
+      unless (img_file == nil)
+        img = Imgur::API.new '90b4d040607755992895fdd5bb586ba2'
+        
+        path = img_file.path
+
+        uploaded_img = img.upload_file path
+        return uploaded_img["image_hash"]
+      end
+    end
+
 end

@@ -20,7 +20,7 @@
         <td><%= costume.cid %></td>
         <td><%= costume.description %></td>
         <td><%= costume.wd %></td>
-        <td><%= costume.photo %></td>
+        <td><%= link_to 'Photo', "http://imgur.com/#{costume.photo}" %></td>
         <td><%= costume.back %></td>
         <td><%= link_to 'Show', costume %></td>
         <td><%= link_to 'Edit', edit_costume_path(costume) %></td>

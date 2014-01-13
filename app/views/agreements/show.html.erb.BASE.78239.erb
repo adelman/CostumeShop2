@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @agreement.name %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @agreement.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @agreement.email %>
+</p>
+
+<p>
+  <strong>Mailbox:</strong>
+  <%= @agreement.mailbox %>
+</p>
+
+<p>
+  <strong>Wesid:</strong>
+  <%= @agreement.wesid %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @agreement.title %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @agreement.start %>
+</p>
+
+<p>
+  <strong>End:</strong>
+  <%= @agreement.end %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @agreement.due %>
+</p>
+
+<p>
+  <strong>Financer:</strong>
+  <%= @agreement.financer %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @agreement.employee %>
+</p>
+
+<h2>Costumes</h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID #</th>
+      <th>Description</th>
+      <th>W/D</th>
+      <th>Photo</th>
+      <th>In?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for costume in @agreement.costumes %>
+      <tr>
+        <td><%= costume.cid %></td>
+        <td><%= costume.description %></td>
+        <td><%= costume.wd %></td>
+        <td><%= costume.photo %></td>
+        <td><%= costume.back %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to 'Edit', edit_agreement_path(@agreement) %> |
+<%= link_to 'Back', agreements_path %>
