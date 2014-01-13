@@ -4,7 +4,7 @@ class CreateCostumes < ActiveRecord::Migration
       t.integer :cid
       t.string :description
       t.string :wd
-      t.string :photo
+      t.text :photo
       t.boolean :back
 
       t.timestamps

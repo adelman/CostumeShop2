@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20131229175229) do
     t.integer  "cid"
     t.string   "description"
     t.string   "wd"
-    t.string   "photo"
+    t.text     "photo"
     t.boolean  "back"
     t.datetime "created_at"
     t.datetime "updated_at"
