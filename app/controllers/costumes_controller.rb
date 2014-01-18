@@ -71,7 +71,7 @@ class CostumesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def costume_params
-      params.require(:costume).permit(:cid, :description, :wd, :photo, :back)
+      params.require(:costume).permit(:cid, :category, :primary, :secondary, :period, :label, :special, :lost, :value, :wd, :photo, :back)
     end
 
     def upload_photo (img_file)

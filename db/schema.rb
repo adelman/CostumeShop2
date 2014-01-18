@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140112184936) do
+ActiveRecord::Schema.define(version: 20140118205719) do
 
   create_table "agreement_costumes", force: true do |t|
     t.integer  "agreement_id"
@@ -41,12 +41,19 @@ ActiveRecord::Schema.define(version: 20140112184936) do
 
   create_table "costumes", force: true do |t|
     t.integer  "cid"
-    t.string   "description"
     t.string   "wd"
     t.text     "photo"
     t.boolean  "back"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "category"
+    t.string   "primary"
+    t.string   "secondary"
+    t.string   "period"
+    t.string   "label"
+    t.string   "special"
+    t.boolean  "lost"
+    t.decimal  "value",      precision: 6, scale: 2
   end
 
   create_table "drycleans", force: true do |t|

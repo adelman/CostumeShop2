@@ -11,30 +11,54 @@
     </div>
   <% end %>
 
-  <table>
-    <tr>
-      <td><div class="field">
-        <%= f.label :cid %><br>
+      <div class="field">
+        <%= f.label :cid, "ID #" %><br>
         <%= f.number_field :cid %>
-      </div></td>
-      <td><div class="field">
-        <%= f.label :description %><br>
-        <%= f.text_field :description %>
-      </div></td>
-      <td><div class="field">
-        <%= f.label :wd %><br>
+      </div>
+      <div class="field">
+        <%= f.label :category, "Category" %><br>
+        <%= f.text_field :category %>
+      </div>
+      <div class="field">
+        <%= f.label :primary, "Primary Color" %><br>
+        <%= f.text_field :primary %>
+      </div>
+      <div class="field">
+        <%= f.label :secondary, "Secondary Color" %><br>
+        <%= f.text_field :secondary %>
+      </div>
+      <div class="field">
+        <%= f.label :period, "Time Period" %><br>
+        <%= f.text_field :period %>
+      </div>
+      <div class="field">
+        <%= f.label :label %><br>
+        <%= f.text_field :label %>
+      </div>
+      <div class="field">
+        <%= f.label :special, "Special Features" %><br>
+        <%= f.text_field :special %>
+      </div>
+      <div class="field">
+        <%= f.label :wd, "W/D" %><br>
         <%= f.text_field :wd %>
-      </div></td>
-      <td><div class="field">
+      </div>
+      <div class="field">
+        <%= f.label :value %><br>
+        <%= f.text_field :value %>
+      </div>
+      <div class="field">
         <%= f.label :photo %><br>
         <%= f.file_field :photo %>
-      </div></td>
-      <td><div class="field">
-        <%= f.label :back %><br>
+      </div>
+      <div class="field">
+        <%= f.label "Lost?" %><br>
+        <%= f.check_box :lost %>
+      </div>
+      <div class="field">
+        <%= f.label "In?" %><br>
         <%= f.check_box :back %>
-      </div></td>
-    </tr>
-  </table>
+      </div>
   
   <div class="actions">
     <%= f.submit %>

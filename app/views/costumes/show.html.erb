@@ -1,28 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Cid:</strong>
+  <strong>ID #:</strong>
   <%= @costume.cid %>
 </p>
-
 <p>
-  <strong>Description:</strong>
-  <%= @costume.description %>
+  <strong>Category:</strong>
+  <%= @costume.category %>
 </p>
-
 <p>
-  <strong>Wd:</strong>
+  <strong>Primary Color:</strong>
+  <%= @costume.primary %>
+</p>
+<p>
+  <strong>Secondary Color:</strong>
+  <%= @costume.secondary %>
+</p>
+<p>
+  <strong>Time Period:</strong>
+  <%= @costume.period %>
+</p>
+<p>
+  <strong>Label:</strong>
+  <%= @costume.label %>
+</p>
+<p>
+  <strong>Special Features:</strong>
+  <%= @costume.special %>
+</p>
+<p>
+  <strong>W/D:</strong>
   <%= @costume.wd %>
 </p>
-
+<p>
+  <strong>Value:</strong>
+  <%= @costume.value %>
+</p>
 <p>
   <strong>Photo:</strong>
-  <%= image_tag("http://imgur.com/#{@costume.photo}") %>
+  <%= link_to 'Photo', "http://imgur.com/#{@costume.photo}", target: "_blank" %>
 </p>
-
 <p>
-  <strong>Back:</strong>
-  <%= @costume.back %>
+  <strong>Lost:</strong>
+  <% if @costume.lost %><td>Yes</td><% else %><td>No</td><% end %> 
+</p>
+<p>
+  <strong>In:</strong>
+  <% if @costume.back %><td>Yes</td><% else %><td>No</td><% end %> 
 </p>
 
 <%= link_to 'Edit', edit_costume_path(@costume) %> |

@@ -42,7 +42,7 @@
     </tr>
     <tr>
       <td><div class="field">
-        <%= f.label "WesID" %><br />
+        <%= f.label :wesid, "WesID" %><br />
         <%= f.text_field :wesid, :required => true %>
       </div></td>
     </tr>
@@ -53,27 +53,27 @@
   <h3>Performance Information</h3>
 
   <div class="field">
-    <%= f.label "Title of Performance" %><br />
+    <%= f.label :title, "Title Of Performance" %><br />
     <%= f.text_field :title %>
   </div>
   <table>
     <tr>
       <td><div class="field">
-        <%= f.label "Performance Start Date" %><br />
+        <%= f.label :start, "Performance Start Date" %><br />
         <%= f.date_select :start %>
       </div></td>
       <td><div class="field">
-        <%= f.label "Performance End Date" %><br />
+        <%= f.label :end, "Performance End Date" %><br />
         <%= f.date_select :end %>
       </div></td>
     </tr>
     <tr>
       <td><div class="field">
-        <%= f.label "Due Date" %><br />
+        <%= f.label :due, "Due Date" %><br />
         <%= f.date_select :due, :default => 2.weeks.from_now %>
       </div></td>
       <td><div class="field">
-        <%= f.label "Who Is Financing (Theater, Dance, or Other)?" %><br />
+        <%= f.label :financer, "Who Is Financing (Theater, Dance, or Other)?" %><br />
         <%= f.text_field :financer %>
       </div></td>
     </tr>
@@ -90,7 +90,7 @@
           <%= d.number_field :invoice %>
         </div></td>
         <td><div class="field">
-          <%= d.label "# of Garments" %><br>
+          <%= d.label :garment, "# of Garments" %><br>
           <%= d.number_field :garment %>
         </div></td>
       </tr>
@@ -105,26 +105,53 @@
     <%= f.fields_for :costumes, :wrapper => false do |c| %>
       <tr>
         <td><div class="field">
-          <%= c.label "ID #" %><br>
+          <%= c.label :cid, "ID #" %><br>
           <%= c.number_field :cid %>
         </div></td>
         <td><div class="field">
-          <%= c.label :description %><br>
-          <%= c.text_field :description %>
+          <%= c.label :category, "Category" %><br>
+          <%= c.text_field :category %>
         </div></td>
         <td><div class="field">
-          <%= c.label "W/D" %><br>
+          <%= c.label :primary, "Primary Color" %><br>
+          <%= c.text_field :primary %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :secondary, "Secondary Color" %><br>
+          <%= c.text_field :secondary %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :period, "Time Period" %><br>
+          <%= c.text_field :period %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :label %><br>
+          <%= c.text_field :label %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :special, "Special Features" %><br>
+          <%= c.text_field :special %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :wd, "W/D" %><br>
           <%= c.text_field :wd %>
+        </div></td>
+        <td><div class="field">
+          <%= c.label :value %><br>
+          <%= c.text_field :value %>
         </div></td>
         <td><div class="field">
           <%= c.label :photo %><br>
           <%= c.file_field :photo %>
         </div></td>
         <td><div class="field">
+          <%= c.label "Lost?" %><br>
+          <%= c.check_box :lost %>
+        </div></td>
+        <td><div class="field">
           <%= c.label "In?" %><br>
           <%= c.check_box :back %>
         </div></td>
-        <td><%= c.link_to_remove "Remove this costume" %></td>
       </tr>
     <% end %>
   </table>
