@@ -1,5 +1,7 @@
 <h1>Listing costumes</h1>
 
+<p><%= link_to "Search for a Costume", new_search_path %></p>
+
 <table border="1">
   <thead>
     <tr>
@@ -22,7 +24,7 @@
   </thead>
 
   <tbody>
-    <% @costumes.each do |costume| %>
+    <% (@costumes.sort_by { |costume| costume.cid }).each do |costume| %>
       <tr>
         <td><%= costume.cid %></td>
         <td><%= costume.category %></td>

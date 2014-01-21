@@ -1,0 +1,31 @@
+<h1>Search Results</h1>
+<% if @search.costumes != [] %>
+  <div class="product">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID #</th>
+        <th>Category</th>
+        <th>Primary Color</th>
+        <th>Secondary Color</th>
+        <th>Time Period</th>
+        <th>Label</th>
+        <th>Special Features</th>
+        <th>W/D</th>
+        <th>Value</th>
+        <th>Photo</th>
+        <th>Lost?</th>
+        <th>In?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render :partial => 'costume', :collection => @search.costumes %> 
+    </tbody>
+  </table>
+  </div>
+<% else %>
+  <h2>No results for your search!</h2>
+<% end %>
+
+<%= link_to "Back", new_search_path %>
+<%= link_to "Costumes", costumes_path %>

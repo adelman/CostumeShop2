@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118205719) do
+ActiveRecord::Schema.define(version: 20140119183907) do
 
   create_table "agreement_costumes", force: true do |t|
     t.integer  "agreement_id"
@@ -65,5 +65,16 @@ ActiveRecord::Schema.define(version: 20140118205719) do
   end
 
   add_index "drycleans", ["agreement_id"], name: "index_drycleans_on_agreement_id"
+
+  create_table "searches", force: true do |t|
+    t.integer  "costume_id"
+    t.string   "category"
+    t.string   "primary"
+    t.string   "secondary"
+    t.string   "period"
+    t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

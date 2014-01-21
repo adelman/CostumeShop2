@@ -1,0 +1,14 @@
+<tr>
+  <td><%= costume.cid %></td>
+  <td><%= costume.category %></td>
+  <td><%= costume.primary %></td>
+  <td><%= costume.secondary %></td>
+  <td><%= costume.period %></td>
+  <td><%= costume.label %></td>
+  <td><%= costume.special %></td>
+  <td><%= costume.wd %></td>
+  <td><%= costume.value %></td>
+  <td><%= link_to 'Photo', "http://imgur.com/#{costume.photo}", target: "_blank" %></td>
+  <% if costume.lost %><td>Yes</td><% else %><td>No</td><% end %> 
+  <% if costume.back %><td>Yes</td><% else %><td>No</td><% end %> 
+</tr>

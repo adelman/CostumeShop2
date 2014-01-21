@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  costume_id: 1
+  category: MyString
+  primary: MyString
+  secondary: MyString
+  period: MyString
+  label: MyString
+
+two:
+  costume_id: 1
+  category: MyString
+  primary: MyString
+  secondary: MyString
+  period: MyString
+  label: MyString
