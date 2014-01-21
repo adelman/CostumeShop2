@@ -1,28 +1,38 @@
-<h1>Advanced Search</h1>
+<h1>Search For A Costume</h1>
 
 <%= form_for @search do |f| %>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.select :category, (options_for_select @categories), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label :primary, "Primary Color" %><br />
-    <%= f.select :primary, (options_for_select @primaries), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label :secondary, "Secondary Color"%><br />
-    <%= f.select :secondary, (options_for_select @secondaries), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label :period, "Time Period" %><br />
-    <%= f.select :period, (options_for_select @periods), include_blank: true %>
-  </div>
-  <div class="field">
-    <%= f.label :label %><br />
-    <%= f.select :label, (options_for_select @labels), include_blank: true %>
-  </div>
 
-  <div class="actions"><%= f.submit "Search" %></div>
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Primary Color</th>
+        <th>Secondary Color</th>
+        <th>Time Period</th>
+        <th>Label</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div class="field">
+          <%= f.select :category, (options_for_select @categories), include_blank: true %>
+        </div></td>
+        <td><div class="field">
+          <%= f.select :primary, (options_for_select @primaries), include_blank: true %>
+        </div></td>
+        <td><div class="field">
+          <%= f.select :secondary, (options_for_select @secondaries), include_blank: true %>
+        </div></td>
+        <td><div class="field">
+          <%= f.select :period, (options_for_select @periods), include_blank: true %>
+        </div></td>
+        <td><div class="field">
+          <%= f.select :label, (options_for_select @labels), include_blank: true %>
+        </div></td>
+        <td><div class="actions"><%= f.submit "Search" %></div></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>
 
 <%= link_to "Back", costumes_path %>
