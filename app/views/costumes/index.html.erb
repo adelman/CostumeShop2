@@ -2,6 +2,13 @@
 
 <p><%= link_to "Search for a Costume", new_search_path %></p>
 
+<div class="pull_right">
+  <table border="1">
+    <tr class="out"><td>This costume is currently out.</td></tr>
+    <tr class="lost"><td>This costume is currently lost.</td></tr>
+  </table>
+</div>
+
 <table border="1">
   <thead>
     <tr>
@@ -25,7 +32,13 @@
 
   <tbody>
     <% (@costumes.sort_by { |costume| costume.cid }).each do |costume| %>
-      <tr>
+      <% if costume.lost %>
+        <tr class="lost">
+      <% elsif !costume.back %>
+        <tr class="out">
+      <% else %>
+        <tr>
+      <% end %>
         <td><%= costume.cid %></td>
         <td><%= costume.category %></td>
         <td><%= costume.primary %></td>
