@@ -96,7 +96,7 @@ Agreement created by <%= @agreement.employee %>
     </thead>
 
     <tbody>
-      <% @costumes.each do |costume| %>
+      <% @agreement.costumes.each do |costume| %>
         <tr>
           <td><%= costume.cid %></td>
           <td><%= costume.category %></td>

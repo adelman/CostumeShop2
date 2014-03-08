@@ -1,5 +1,10 @@
 <h1>Listing agreements</h1>
 
+<%= link_to 'New Agreement', new_agreement_path %>
+<%= link_to 'Back', root_path %>
+
+<br>
+
 <table border=1>
   <thead>
     <tr>
@@ -25,8 +30,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Agreement', new_agreement_path %>
-<%= link_to 'Back', root_path %>
