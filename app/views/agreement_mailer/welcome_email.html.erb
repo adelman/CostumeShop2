@@ -67,26 +67,40 @@
       <thead>
         <tr>
           <th>ID #</th>
-          <th>Description</th>
+          <th>Category</th>
+          <th>Primary Color</th>
+          <th>Secondary Color</th>
+          <th>Time Period</th>
+          <th>Label</th>
+          <th>Special Features</th>
           <th>W/D</th>
+          <th>Value</th>
           <th>Photo</th>
+          <th>Lost?</th>
           <th>In?</th>
         </tr>
       </thead>
+
       <tbody>
-        <% for costume in @agreement.costumes %>
+        <% @agreement.costumes.each do |costume| %>
           <tr>
             <td><%= costume.cid %></td>
-            <td><%= costume.description %></td>
+            <td><%= costume.category %></td>
+            <td><%= costume.primary %></td>
+            <td><%= costume.secondary %></td>
+            <td><%= costume.period %></td>
+            <td><%= costume.label %></td>
+            <td><%= costume.special %></td>
             <td><%= costume.wd %></td>
-            <td><%= costume.photo %></td>
-            <td><%= costume.back %></td>
+            <td><%= costume.value %></td>
+            <td><%= link_to 'Photo', "http://imgur.com/#{costume.photo}", target: "_blank" %></td>
+            <% if costume.lost %><td>Yes</td><% else %><td>No</td><% end %> 
+            <% if costume.back %><td>Yes</td><% else %><td>No</td><% end %> 
           </tr>
         <% end %>
       </tbody>
     </table>
 
-
-</body>
+  </body>
 </html>
 

@@ -1,6 +1,11 @@
 <h1>Listing costumes</h1>
 
 <p><%= link_to "Search for a Costume", new_search_path %></p>
+<p>
+<%= link_to 'New Costume', new_costume_path %>
+<%= link_to 'Back', root_path %></p>
+
+<br>
 
 <div class="pull_right">
   <table border="1">
@@ -58,8 +63,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Costume', new_costume_path %>
-<%= link_to 'Back', root_path %>

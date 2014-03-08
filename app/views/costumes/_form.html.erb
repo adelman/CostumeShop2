@@ -41,7 +41,7 @@
       </div>
       <div class="field">
         <%= f.label :wd, "W/D" %><br>
-        <%= f.text_field :wd %>
+        <%= f.select(:wd, options_for_select([['W', 'W'], ['D', 'D'], ['N/A', 'N/A']], selected: @costume.wd), include_blank: true) %>
       </div>
       <div class="field">
         <%= f.label :value %><br>

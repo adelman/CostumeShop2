@@ -25,7 +25,6 @@ class CostumesController < ApplicationController
   # POST /costumes.json
   def create
     @costume = Costume.new(costume_params)
-    @costume.photo = upload_photo(@costume.photo)
 
     respond_to do |format|
       if @costume.save
@@ -41,7 +40,6 @@ class CostumesController < ApplicationController
   # PATCH/PUT /costumes/1
   # PATCH/PUT /costumes/1.json
   def update
-    update_photo
     respond_to do |format|
       if @costume.update(costume_params)
         format.html { redirect_to @costume, notice: 'Costume was successfully updated.' }
@@ -73,26 +71,5 @@ class CostumesController < ApplicationController
     def costume_params
       params.require(:costume).permit(:cid, :category, :primary, :secondary, :period, :label, :special, :lost, :value, :wd, :photo, :back)
     end
-
-    def upload_photo (img_file)
-      unless (img_file == nil)
-        img = Imgur::API.new '90b4d040607755992895fdd5bb586ba2'
-        
-        path = img_file.path
-
-        uploaded_img = img.upload_file path
-        return uploaded_img["image_hash"]
-      end
-    end
-
-    def update_photo
-      if params[:costume][:photo] == nil
-        params[:costume][:photo] = @costume.photo
-      else
-        params[:costume][:photo] = upload_photo(params[:costume][:photo])
-      end
-    end
-
-
 
 end
