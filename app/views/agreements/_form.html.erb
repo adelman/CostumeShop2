@@ -134,7 +134,7 @@
         </div></td>
         <td><div class="field">
           <%= c.label :wd, "W/D" %><br>
-          <%= c.text_field :wd %>
+          <%= c.select(:wd, options_for_select([['W', 'W'], ['D', 'D'], ['N/A', 'N/A']], selected: c.object.wd), include_blank: true) %>
         </div></td>
         <td><div class="field">
           <%= c.label :value %><br>
