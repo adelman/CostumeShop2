@@ -28,13 +28,9 @@ class AgreementsController < ApplicationController
   def create
     @agreement = Agreement.new(agreement_params)
 
-    for costume in @agreement.costumes
-      costume.photo = upload_photo(costume.photo)
-    end
-
     respond_to do |format|
       if @agreement.save
-        AgreementMailer.welcome_email(@agreement).deliver        
+        #AgreementMailer.welcome_email(@agreement).deliver        
         format.html { redirect_to @agreement, notice: 'Agreement was successfully created.' }
         format.json { render action: 'show', status: :created, location: @agreement }
       else
@@ -47,12 +43,6 @@ class AgreementsController < ApplicationController
   # PATCH/PUT /agreements/1
   # PATCH/PUT /agreements/1.json
   def update
-    # For photo updates
-    x = 0 # Counter for updating costumes
-    for costume in params[:agreement][:costumes_attributes].values
-      update_photo(costume, x)
-      x = x + 1 # incrementing
-    end
     respond_to do |format|
       if @agreement.update(agreement_params)
         format.html { redirect_to @agreement, notice: 'Agreement was successfully updated.' }
@@ -82,26 +72,7 @@ class AgreementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def agreement_params
-      params.require(:agreement).permit(:name, :phone, :email, :mailbox, :wesid, :title, :start, :end, :due, :financer, :employee, costumes_attributes: [:id, :cid, :description, :wd, :photo, :back], drycleans_attributes: [:id, :_destroy, :invoice, :garment])
-    end
-
-    def upload_photo (img_file)
-      unless (img_file == nil)
-        img = Imgur::API.new '90b4d040607755992895fdd5bb586ba2'
-        
-        path = img_file.path
-
-        uploaded_img = img.upload_file path
-        return uploaded_img["image_hash"]
-      end
-    end
-
-    def update_photo (costume, index)
-      if costume[:photo] == nil
-        costume[:photo] = @agreement.costumes[index].photo
-      else
-        costume[:photo] = upload_photo(costume[:photo])
-      end
+      params.require(:agreement).permit(:name, :phone, :email, :mailbox, :wesid, :title, :start, :end, :due, :financer, :employee, costumes_attributes: [:id, :cid, :category, :primary, :secondary, :period, :label, :special, :value, :lost, :wd, :photo, :back], drycleans_attributes: [:id, :_destroy, :invoice, :garment])
     end
 
 end
