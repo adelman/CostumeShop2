@@ -3,8 +3,10 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.2'
 
-gem 'nested_form', '0.3.2'
-gem 'imgur', '0.2.0'
+gem 'net-ssh', '2.7.0'
+
+gem 'nested_form'
+gem 'imgur'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'
@@ -26,3 +28,7 @@ group :production do
   gem 'pg'
   gem 'rails_12factor', '0.0.2'
 end
+
+gem 'unicorn'
+gem 'capistrano'
+gem 'rvm-capistrano'
